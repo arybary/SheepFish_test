@@ -12,8 +12,3 @@ export interface Product {
   images?: string[];
 }
 
-export interface ProductsState {
-  items: Product[];
-  isLoading: boolean;
-  error: string | null;
-}

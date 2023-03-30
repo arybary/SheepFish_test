@@ -1,17 +1,7 @@
+import React from "react";
+import ProductsTable from "../components/ProductsTable";
 
-import React, { useState } from "react";
-
-
-import ProductsList from "../components/ProductList";
-
-
-const Home = () => {
-
-  return (
-   <>
-  
-   <ProductsList/></>
-  );
-};
+const Home: React.FC = () =>   <ProductsTable />
+ 
 
 export default Home;
