@@ -1,124 +1,172 @@
 import * as React from "react";
 import { Formik, Form, Field } from "formik";
-import { Product } from "../../store/products.type";
-import { TextField, Button } from "@mui/material";
+import { Product } from "../../model/Product";
+import { TextField, Button, Typography, Grid } from "@mui/material";
 import { validationSchema } from "./validation.shema";
+import ProductImagesField from "./ProductImagesField";
 
 interface ProductFormProps {
-  product: Product ;
-  onSubmit: (values: Product) => void;
+  product: Product;
+  nameBtn: string;
+  onSubmitProduct: (values: Product) => void;
 }
 
-const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmit }) => {
-
-  return (
-    product && (
-      <Formik
-        initialValues={product}
-        onSubmit={(values) => {console.log(values);onSubmit(values)}}
-        validationSchema={validationSchema}
-      >
-        {({ errors, touched }) => (
-          <Form style={{ maxWidth: "880px", margin: " 0 auto" }}>
+const ProductForm: React.FC<ProductFormProps> = ({
+  product,
+  onSubmitProduct,
+  nameBtn,
+}) => (
+  <Formik
+    initialValues={product}
+    validationSchema={validationSchema}
+    onSubmit={(values) => {
+      onSubmitProduct(values);
+    }}
+  >
+    {({ values, errors, touched, handleSubmit, handleChange, handleReset }) => (
+      <Form onSubmit={handleSubmit} onReset={handleReset}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Typography variant="h6" component="h2">
+              <img width={"50%"} src={values.thumbnail} alt={values.title} />
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
             <Field
               as={TextField}
-              label="Title"
+              fullWidth
               name="title"
+              label="Title"
+              value={values.title}
+              error={touched.title && Boolean(errors.title)}
               helperText={touched.title && errors.title}
-              error={Boolean(touched.title && errors.title)}
+              onChange={handleChange}
             />
-            <br />
+          </Grid>
+          <Grid item xs={12}>
             <Field
               as={TextField}
-              multiline
-              label="Description"
+              fullWidth
               name="description"
+              label="Description"
+              value={values.description}
+              error={touched.description && Boolean(errors.description)}
               helperText={touched.description && errors.description}
-              error={Boolean(touched.description && errors.description)}
+              onChange={handleChange}
             />
-            <br />
+          </Grid>
+          <Grid item xs={6}>
             <Field
               as={TextField}
-              type="number"
-              label="Price"
+              fullWidth
               name="price"
+              label="Price"
+              type="number"
+              value={values.price}
+              error={touched.price && Boolean(errors.price)}
               helperText={touched.price && errors.price}
-              error={Boolean(touched.price && errors.price)}
+              onChange={handleChange}
             />
-            <br />
+          </Grid>
+          <Grid item xs={6}>
             <Field
               as={TextField}
-              type="number"
-              label="Discount Percentage"
+              fullWidth
               name="discountPercentage"
+              label="Discount Percentage %"
+              type="number"
+              value={values.discountPercentage}
+              error={
+                touched.discountPercentage && Boolean(errors.discountPercentage)
+              }
               helperText={
                 touched.discountPercentage && errors.discountPercentage
               }
-              error={Boolean(
-                touched.discountPercentage && errors.discountPercentage
-              )}
+              onChange={handleChange}
             />
-            <br />
+          </Grid>
+          <Grid item xs={6}>
             <Field
               as={TextField}
-              type="number"
-              label="Rating"
+              fullWidth
               name="rating"
-              helperText={touched.rating && errors.rating}
-              error={Boolean(touched.rating && errors.rating)}
-            />
-            <br />
-            <Field
-              as={TextField}
+              label="Rating 0-5"
               type="number"
-              label="Stock"
+              value={values.rating}
+              error={touched.rating && Boolean(errors.rating)}
+              helperText={touched.rating && errors.rating}
+              onChange={handleChange}
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <Field
+              as={TextField}
+              fullWidth
               name="stock"
+              label="Stock"
+              type="number"
+              value={values.stock}
+              error={touched.stock && Boolean(errors.stock)}
               helperText={touched.stock && errors.stock}
-              error={Boolean(touched.stock && errors.stock)}
+              onChange={handleChange}
             />
-            <br />
+          </Grid>
+          <Grid item xs={6}>
             <Field
               as={TextField}
-              label="Brand"
+              fullWidth
               name="brand"
+              label="Brand"
+              value={values.brand}
+              error={touched.brand && Boolean(errors.brand)}
               helperText={touched.brand && errors.brand}
-              error={Boolean(touched.brand && errors.brand)}
+              onChange={handleChange}
             />
-            <br />
+          </Grid>
+          <Grid item xs={6}>
             <Field
               as={TextField}
-              label="Category"
+              fullWidth
               name="category"
+              label="Category"
+              value={values.category}
+              error={touched.category && Boolean(errors.category)}
               helperText={touched.category && errors.category}
-              error={Boolean(touched.category && errors.category)}
+              onChange={handleChange}
             />
-            <br />
+          </Grid>
+          <Grid item xs={12}>
             <Field
               as={TextField}
-              label="Thumbnail URL"
+              fullWidth
               name="thumbnail"
+              label="Thumbnail URL"
+              value={values.thumbnail}
+              error={touched.thumbnail && Boolean(errors.thumbnail)}
               helperText={touched.thumbnail && errors.thumbnail}
-              error={Boolean(touched.thumbnail && errors.thumbnail)}
+              onChange={handleChange}
             />
-            <br />
-            <Field
-              as={TextField}
-              multiline
-              minRows={3}
-              label="Images URLs (Optional)"
-              name="images"
-              helperText={touched.images && errors.images}
-              error={Boolean(touched.images && errors.images)}
-            />
-            <br />
-            <Button type="submit" variant="contained">
-              Submit
+          </Grid>
+
+          <ProductImagesField
+            images={values.images}
+            touched={touched.images}
+            erros={errors.images}
+            handleChange={handleChange}
+          />
+
+          <Grid item xs={12}>
+            <Button variant="contained" color="primary" type="submit">
+              {nameBtn}
             </Button>
-          </Form>
-        )}
-      </Formik>
-    )
-  );
-};
+            <Button type="reset" variant="contained">
+              Reset
+            </Button>
+          </Grid>
+        </Grid>
+      </Form>
+    )}
+  </Formik>
+);
 
 export default ProductForm;

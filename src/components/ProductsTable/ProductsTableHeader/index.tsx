@@ -1,20 +1,6 @@
-import { TableRow, TableCell, TextField } from "@mui/material";
-import { SetStateAction, useState } from "react";
+import { TableRow, TableCell } from "@mui/material";
 
-interface TableHeaderProp {
-  onSearch: (text: any) => void;
-}
-
-const HeaderTable: React.FC<TableHeaderProp> = ({ onSearch }) => {
-  const [searchText, setSearchText] = useState("");
-
-  const handleSearchChange = (event: {
-    target: { value: SetStateAction<string> };
-  }) => {
-    setSearchText(event.target.value);
-    onSearch(event.target.value);
-  };
-
+const HeaderTable: React.FC = () => {
   return (
     <TableRow>
       <TableCell>ID</TableCell>
@@ -26,13 +12,7 @@ const HeaderTable: React.FC<TableHeaderProp> = ({ onSearch }) => {
       <TableCell>Stock</TableCell>
       <TableCell>Brand</TableCell>
       <TableCell>Category</TableCell>
-      <TableCell align="right">
-        <TextField
-          label="Search"
-          value={searchText}
-          onChange={handleSearchChange}
-        />
-      </TableCell>
+      <TableCell align="right">action</TableCell>
     </TableRow>
   );
 };

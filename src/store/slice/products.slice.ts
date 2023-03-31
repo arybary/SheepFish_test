@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
-import { fetchProducts } from "../actions/products.actions";
-import { Product } from "../products.type";
+import { fetchProducts } from "../actions/actions";
+import { Product } from "../../model/Product";
 
 export const productsAdapter = createEntityAdapter<Product>({
   selectId: (product) => product.id,

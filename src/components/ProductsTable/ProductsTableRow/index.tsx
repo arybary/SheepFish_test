@@ -1,7 +1,9 @@
 import { TableRow, TableCell } from "@mui/material";
-import { Product } from "../../../store/products.type";
-import DeleteButton from "../../ProductButtonDelete";
-import EditButton from "../../ProductButtonEdit";
+import { Product } from "../../../model/Product";
+import ProductDelete from "../../ProductDelete";
+
+import ProductEdit from "../../ProductEdit";
+
 import TextRating from "../../ProductRating";
 
 interface ProductTableRowProps extends Product {
@@ -32,11 +34,12 @@ const ProductTableRow: React.FC<ProductTableRowProps> = ({
     <TableCell>{stock}</TableCell>
     <TableCell>{brand}</TableCell>
     <TableCell>{category}</TableCell>
-    <TableCell align="right">
-      <EditButton product={product} />
-      <DeleteButton productId={id} />
+    <TableCell align="right" style={{ display: "flex" }}>
+      <ProductDelete productId={id} />
+      <ProductEdit product={product} />
     </TableCell>
   </TableRow>
+ 
 );
 
 export default ProductTableRow;

@@ -1,9 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers, Middleware } from "redux";
+import productsReduser from "./slice/products.slice";
+import filtersSlice from "./slice/filter.slice";
+import tableSlice from "./slice/table.slice";
 
-import productsReduser from "./redusers/products.slice";
+const rootReduser = combineReducers({
+  products: productsReduser.reducer,
+  filters: filtersSlice.reducer,
+  table: tableSlice.reducer,
+});
 
-const rootReduser = combineReducers({ products: productsReduser.reducer });
+export type RootState = ReturnType<typeof rootReduser>;
 
 const logger: Middleware<{}, RootState> = (state) => (next) => (action) => {
   console.group(action.type);
@@ -13,8 +20,6 @@ const logger: Middleware<{}, RootState> = (state) => (next) => (action) => {
   console.groupEnd();
   return result;
 };
-
-export type RootState = ReturnType<typeof rootReduser>;
 
 const store = configureStore({
   reducer: rootReduser,

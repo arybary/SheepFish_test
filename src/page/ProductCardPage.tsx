@@ -1,7 +1,7 @@
 import { Container, Typography } from "@mui/material";
 import React, { useState } from "react";
 import ProductForm from "../components/ProductForm";
-import { Product } from "../store/products.type";
+import { Product } from "../model/Product";
 import { selectProductIds } from "../store/selectors/products.selector";
 import { useActions } from "../store/useActions";
 import { useTypedSelector } from "../store/useTypedSelector";
@@ -10,9 +10,7 @@ const AddProductPage = () => {
   const { addProduct } = useActions();
   let idNext = useTypedSelector(selectProductIds).length + 1;
 
-
   console.log(idNext);
-
 
   const [addedProducts, setAddedProducts] = useState<Product[]>([]);
   const [idAdded, setIdAdded] = useState<number>(idNext);
@@ -20,7 +18,7 @@ const AddProductPage = () => {
     addProduct(product);
     addedProducts.push(product);
     setAddedProducts(addedProducts);
-    setIdAdded(idAdded+1)
+    setIdAdded(idNext + 1);
   };
   const product = {
     id: idAdded,
@@ -33,15 +31,20 @@ const AddProductPage = () => {
     brand: "",
     category: "",
     thumbnail: "",
+    images: [],
   };
   return (
     <Container maxWidth="sm">
       <Typography variant="h4" align="center" gutterBottom>
-        Add New Product
-        you added product: {addedProducts.map((product) => product.title)}
+        Add New Product you added product:{" "}
+        {addedProducts.map((product) => product.title)}
       </Typography>
-   
-      <ProductForm product={product} onSubmit={addedProduct} />
+
+      <ProductForm
+        product={product}
+        onSubmitProduct={addedProduct}
+        nameBtn={"ADD_PRODUCT"}
+      />
     </Container>
   );
 };

@@ -3,7 +3,6 @@ import { Link as RouterLink, useLocation } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import HomeIcon from "@mui/icons-material/Home";
-import PostAddIcon from "@mui/icons-material/PostAdd";
 import { BottomNavigationAction } from "@mui/material";
 
 const navLinks = [
@@ -12,11 +11,7 @@ const navLinks = [
     path: "/",
     icon: <HomeIcon />,
   },
-  {
-    title: "Add product",
-    path: "/add-product",
-    icon: <PostAddIcon />,
-  },
+
 ];
 
 const Header: React.FC = () => {
@@ -26,8 +21,7 @@ const Header: React.FC = () => {
     <AppBar position="fixed" sx={{ backgroundColor: "green" }}>
       <Toolbar>
         <div style={{ flexGrow: 1 }} />
-
-        {navLinks.map(
+         {navLinks.map(
           (link) =>
             location.pathname !== link.path && (
               <BottomNavigationAction
