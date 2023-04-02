@@ -2,7 +2,7 @@ import { Container, Typography } from "@mui/material";
 import React, { useState } from "react";
 import ProductForm from "../components/ProductForm";
 import { Product } from "../model/Product";
-import { selectProductIds } from "../store/selectors/products.selector";
+import { selectProductIds } from "../store/selectors/selector";
 import { useActions } from "../store/useActions";
 import { useTypedSelector } from "../store/useTypedSelector";
 

@@ -21,7 +21,7 @@ type TableState = {
 const initialState: TableState = {
   sorting: { field: "id", order: "asc" },
   pagination: {
-    page: 0,
+    page: 1,
     rowsPerPage: 10,
   },
 };

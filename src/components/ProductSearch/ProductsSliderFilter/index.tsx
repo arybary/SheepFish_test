@@ -1,8 +1,13 @@
-import { Box, Grid, Slider, Typography } from "@mui/material";
 import React from "react";
 import { Product } from "../../../model/Product";
 import { FilterValue } from "../../../store/slice/filter.slice";
 import { useActions } from "../../../store/useActions";
+import {
+  Wrapper,
+  StyledSlider,
+  TitleSlider,
+  StyledTextField,
+} from "./ProductSliderFilter.styled";
 
 interface ProductSliderFilterProps {
   name: keyof Product;
@@ -15,29 +20,41 @@ const ProductSliderFilter: React.FC<ProductSliderFilterProps> = ({
 }) => {
   const { setFilter } = useActions();
   const [value, setValue] = React.useState<number[]>(startValue);
-  const handleChange = (event: Event, newValue: number | number[]) => {
+  const nameForTitle = name.slice(0, 8);
+  const handleChange = (newValue: number | number[]) => {
     setValue(newValue as number[]);
     setFilter({ field: name, value: newValue as FilterValue });
   };
 
   return (
-    <Box sx={{ width: "50%" }}>
-      <Typography gutterBottom>{name}</Typography>
-      <Grid container spacing={2} alignItems="center">
-        <Grid item>{value[0]}</Grid>
-        <Grid item xs>
-          <Slider
-            step={0.1}
-            value={value}
-            onChange={handleChange}
-            valueLabelDisplay="auto"
-            min={startValue[0]}
-            max={startValue[1]}
-          />
-        </Grid>
-        <Grid item>{value[1]}</Grid>
-      </Grid>
-    </Box>
+    <Wrapper>
+      <TitleSlider>{nameForTitle}:</TitleSlider>
+      <StyledTextField
+        size="small"
+        value={value[0]}
+        type="number"
+        onChange={(event) =>
+          handleChange([Number(event.target.value), value[1]])
+        }
+      />
+      <StyledSlider
+        step={0.1}
+        value={value}
+        size="small"
+        valueLabelDisplay="auto"
+        onChange={(e, newValue: number | number[]) => handleChange(newValue)}
+        min={startValue[0]}
+        max={startValue[1]}
+      />
+      <StyledTextField
+        value={value[1]}
+        type="number"
+        size="small"
+        onChange={(event) =>
+          handleChange([value[0], Number(event.target.value)])
+        }
+      />
+    </Wrapper>
   );
 };
 

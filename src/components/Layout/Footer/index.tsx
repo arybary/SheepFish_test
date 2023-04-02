@@ -1,37 +1,34 @@
-import { Box, Link, Typography } from '@mui/material';
-import { GitHub, LinkedIn } from '@mui/icons-material';
+import * as React from "react";
+import { Link, Typography } from "@mui/material";
+import { GitHub, Google } from "@mui/icons-material";
+import { FooterContainer, StyledToolbar } from "./Footer.styled";
 
-const Footer = () => {
-  return (
-    <Box sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', p: 1 }}>
-        <Typography variant="caption">
-          <Link href="https://github.com/arybary" target="_blank" rel="noopener noreferrer">
-            <GitHub fontSize="small" sx={{ mr: 1 }} />
-            GitHub
-          </Link>{' '}
-          <Link href="https://djinni.co/q/9cb1284d7e/" target="_blank" rel="noopener noreferrer">
-            Djinni
-          </Link>{' '}
-          <Link
-            href="https://www.linkedin.com/in/rostislav-medvid-9584081a2/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <LinkedIn fontSize="small" sx={{ mr: 1 }} />
-            LinkedIn
-          </Link>{' '}
-          <Link
-            href="https://docs.google.com/document/d/1UPVi2a9BNfme9zNLBeGaL41hKIwaAwfiADpX5A8pYIY/edit#heading=h.gjdgxs"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Google Doc
-          </Link>
+const Footer: React.FC = () => (
+  <FooterContainer>
+
+      <StyledToolbar>
+        <Link
+          href="https://github.com/arybary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <GitHub fontSize="small" sx={{ mr: 1 }} />
+          GitHub
+        </Link>{" "}
+        <Typography variant="h6" component="div">
+        created by ROSTISLAV 2023
         </Typography>
-      </Box>
-    </Box>
-  );
-};
+        <Link
+          href="https://docs.google.com/document/d/1UPVi2a9BNfme9zNLBeGaL41hKIwaAwfiADpX5A8pYIY/edit#heading=h.gjdgxs"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Google fontSize="small" sx={{ mr: 1 }} />
+          Google Doc: MY_RESUME
+        </Link>
+      </StyledToolbar>
+
+  </FooterContainer>
+);
 
 export default Footer;

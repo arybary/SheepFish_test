@@ -1,30 +1,46 @@
-import { TableContainer, Table, TableHead, TableBody } from "@mui/material";
-import { selectProductsForTable } from "../../store/selectors/products.selector";
+import {
+  TableContainer,
+  Table, 
+  TableBody,
+  Paper,
+} from "@mui/material";
+import { useEffect } from "react";
+import { selectProductsForTable } from "../../store/selectors/selector";
+import { useActions } from "../../store/useActions";
 import { useTypedSelector } from "../../store/useTypedSelector";
 import HeaderTable from "./ProductsTableHeader";
+import TablePagination from "./ProductsTablePagination";
 import ProductTableRow from "./ProductsTableRow";
 
-const ProductTable = () => {
+const ProductTable: React.FC = () => {
+  const { fetchProducts } = useActions();
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
   const products = useTypedSelector(selectProductsForTable);
 
   return (
-    <TableContainer>
-      <Table>
-        <TableHead>
+    <Paper sx={{ width: "100%" }}>
+      <TableContainer>
+        <Table stickyHeader>
           <HeaderTable />
-        </TableHead>
-        <TableBody>
-          {products.map((product) => (
-            <ProductTableRow
-              key={product.id}
-              {...product}
-              product={product}
-              {...product}
-            />
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+
+          <TableBody>
+            {products.map((product) => (
+              <ProductTableRow
+                key={product.id}
+                {...product}
+                product={product}
+                {...product}
+              />
+            ))}
+          </TableBody>
+        </Table>
+        <TablePagination />
+      </TableContainer>
+ 
+    </Paper>
   );
 };
 

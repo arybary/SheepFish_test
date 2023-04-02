@@ -1,8 +1,9 @@
-import { Autocomplete, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import { Product } from "../../../model/Product";
-import { selectFiltredProducts } from "../../../store/selectors/products.selector";
+import { selectFiltredProducts } from "../../../store/selectors/selector";
 import { useActions } from "../../../store/useActions";
 import { useTypedSelector } from "../../../store/useTypedSelector";
+import { StyledAutocomplete } from "./ProductFieldFilter.styled";
 
 interface ProductsFieldFilterProps {
   field: keyof Product;
@@ -11,16 +12,14 @@ interface ProductsFieldFilterProps {
 const ProductsFieldFilter: React.FC<ProductsFieldFilterProps> = ({ field }) => {
   const products = useTypedSelector(selectFiltredProducts);
   const { setFilter } = useActions();
+
   return (
-    <Autocomplete
+    <StyledAutocomplete
+      size="small"
+      sx={{ minWidth: 400 }}
       options={products.map((item) => item[field])}
       renderInput={(params) => (
-        <TextField
-          {...params}
-          label={`Search ${field}`}
-         
-          fullWidth
-        />
+        <TextField {...params} label={`Search ${field}`} fullWidth />
       )}
       onInputChange={(event, value) => setFilter({ field: field, value })}
     />

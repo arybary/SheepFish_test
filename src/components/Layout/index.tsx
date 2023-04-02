@@ -1,24 +1,34 @@
-import { CssBaseline, Container } from "@mui/material";
-import React, { useEffect } from "react";
+import {
+  Box,
+  Container,
+  ThemeProvider,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import React from "react";
 import { Outlet } from "react-router-dom";
-import { useActions } from "../../store/useActions";
+
 import Footer from "./Footer";
 import Header from "./Header";
+import { theme, Root } from "./Layout.styled";
 
 const Layout: React.FC = () => {
-  const { fetchProducts } = useActions();
-  useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
+  const appTheme = useTheme();
+  const isMdUp = useMediaQuery(appTheme.breakpoints.up("md"));
+  const typography = isMdUp ? { fontSize: 24 } : {};
   return (
-    <div className="App">
-      <CssBaseline />
-      <Header />
-      <Container sx={{ marginTop: 10, marginBottom: 10 }}>
-        <Outlet />
-      </Container>
-      <Footer />
-    </div>
+    <ThemeProvider theme={theme}>
+      <Root>
+        <Typography component="div" sx={{ p: 2, ...typography }}>
+          <Header />
+          <Box>
+            <Outlet />
+          </Box>
+          <Footer />
+        </Typography>
+      </Root>
+    </ThemeProvider>
   );
 };
 

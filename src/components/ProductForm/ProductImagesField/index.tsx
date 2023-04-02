@@ -3,12 +3,12 @@ import { Field, FieldArray } from "formik";
 import {
   TextField,
   Button,
-  Typography,
   Grid,
   IconButton,
   Card,
   CardActions,
   CardMedia,
+  Tooltip,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
@@ -26,33 +26,30 @@ const ProductImagesField: React.FC<ProductImagesProps> = ({
   images,
   handleChange,
 }) => (
-  <>
-    <Typography variant="h6" component="h2">
-      Product images
-    </Typography>
-
-    <FieldArray
-      name="images"
-      render={({ remove, push }) => (
-        <Grid container spacing={2}>
-          {images && images.length > 0
-            ? images.map((image: string, index: number) => (
-                <Grid item xs={6} key={`image-field-${index}`}>
-                  <Card>
-                    <CardMedia
-                      component="img"
-                      image={image}
-                      alt={`Image ${index}`}
-                    />
-                    <CardActions sx={{ justifyContent: "flex-end" }}>
+  <FieldArray
+    name="images"
+    render={({ remove, push }) => (
+      <>
+        {images && images.length > 0
+          ? images.map((image: string, index: number) => (
+              <Grid item xs={6} key={`image-field-${index}`}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    sizes="100px"
+                    image={image}
+                    alt={`Image ${index}`}
+                  />
+                  <CardActions sx={{ justifyContent: "flex-end" }}>
+                    <Tooltip title={"DELETE_IMAGE"}>
                       <IconButton
                         aria-label="delete"
+                        color="error"
                         onClick={() => remove(index)}
                       >
                         <DeleteIcon />
                       </IconButton>
-                    </CardActions>
-
+                    </Tooltip>
                     <Field
                       as={TextField}
                       fullWidth
@@ -68,17 +65,25 @@ const ProductImagesField: React.FC<ProductImagesProps> = ({
                       helperText={touched && erros && erros[index]}
                       onChange={handleChange}
                     />
-                  </Card>
-                </Grid>
-              ))
-            : null}
-          <Button size="large" type="button" onClick={() => push("")}>
-            Add an Image <AddPhotoAlternateIcon />
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))
+          : null}
+        <Grid item xs={12}>
+          <Button
+            variant="outlined"
+            startIcon={<AddPhotoAlternateIcon />}
+            size="large"
+            type="button"
+            onClick={() => push("")}
+          >
+            ADD_AN_IMAGE
           </Button>
         </Grid>
-      )}
-    />
-  </>
+      </>
+    )}
+  />
 );
 
 export default ProductImagesField;
