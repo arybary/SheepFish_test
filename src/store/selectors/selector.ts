@@ -16,9 +16,14 @@ export const selectTableSorting = createSelector(
   ({ sorting }) => sorting
 );
 export const selectTablePagination = createSelector(
-  [selectTableParam],
-  ({ pagination }) => pagination
+  [selectTableParam, selectAllProducts],
+  ({ pagination }, products) => {
+    const { page, rowsPerPage } = pagination;
+    const countPages = Math.ceil(products.length / rowsPerPage);
+    return { page, countPages, rowsPerPage };
+  }
 );
+
 export const selectFiltredProducts = createSelector(
   [selectAllProducts, selectFilter],
   (products, filters) =>
@@ -63,7 +68,7 @@ export const selectProductsForTable = createSelector(
 
     const { page, rowsPerPage } = pagination;
 
-    const startIndex = (page-1) * rowsPerPage;
+    const startIndex = (page - 1) * rowsPerPage;
     const endIndex = startIndex + rowsPerPage;
 
     return filteredProducts.slice(startIndex, endIndex);

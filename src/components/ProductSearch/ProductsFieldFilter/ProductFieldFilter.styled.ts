@@ -1,6 +1,7 @@
 import { Autocomplete } from "@mui/material";
 import styled from "styled-components";
-import { blue, yellow } from "../../Layout/Layout.styled";
+import { blue, yellow } from "../../../theme.";
+
 
 export const StyledAutocomplete = styled(Autocomplete)`
   color: ${blue};

@@ -12,7 +12,7 @@ import ProductsFieldFilter from "./ProductsFieldFilter";
 import ProductSliderFilter from "./ProductsSliderFilter";
 
 const ProductSearch: React.FC = () => (
-  <StyledAccordion>
+  <StyledAccordion >
     <StyledAccordionSummary expandIcon={<ExpandMore />}>
     <Search /> <Typography >SEARCH_PRODUCT:</Typography>
     </StyledAccordionSummary>

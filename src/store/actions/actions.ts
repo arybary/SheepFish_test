@@ -13,4 +13,10 @@ export const { addProduct, updateProduct, removeProduct } =
   productsSlice.actions;
 export const { setFilter } = filtersSlice.actions;
 
-export const { setSorting, removeSorting, setPagination } = tableSlice.actions;
+export const {
+  setSorting,
+
+  removeSorting,
+  setPaginationPage,
+  setPaginationRowsPerPage,
+} = tableSlice.actions;

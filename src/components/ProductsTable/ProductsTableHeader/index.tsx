@@ -1,26 +1,11 @@
-import { TableRow, TableCell, TableHead } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { TableRow } from "@mui/material";
 import { Product } from "../../../model/Product";
 import ProductsSortingBtn from "./ProductsSortingBtn";
-
-const StyledTableHead = styled(TableHead)(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
-  color: theme.palette.primary.contrastText,
-}));
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  fontWeight: "bold",
-  "& button": {
-    marginLeft: theme.spacing(1),
-    border: "none",
-    background: "none",
-    color: "inherit",
-    cursor: "pointer",
-    "&:hover": {
-      textDecoration: "underline",
-    },
-  },
-}));
+import {
+  StyledTableHead,
+  StyledTableCell,
+  StyledHeaderTitle,
+} from "./ProductTableHeader.Styled";
 
 interface TableHeaderCell {
   name: string;
@@ -45,8 +30,10 @@ const HeaderTable: React.FC = () => (
     <TableRow>
       {tableHeaderData.map(({ name, sortBy }) => (
         <StyledTableCell key={name + sortBy}>
-          {name}
-          {sortBy && <ProductsSortingBtn nameCell={sortBy} />}
+          <StyledHeaderTitle>
+            {name}
+            {sortBy && <ProductsSortingBtn nameCell={sortBy} />}
+          </StyledHeaderTitle>
         </StyledTableCell>
       ))}
     </TableRow>

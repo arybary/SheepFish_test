@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { blue, yellow } from "../../Layout/Layout.styled";
-import { Slider, TextField } from "@mui/material";
+import { Slider, TextField,Box } from "@mui/material";
+import { blue, yellow } from "../../../theme.";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(Box)`
   display: flex;
   flex-direction: z;
   align-items: center;

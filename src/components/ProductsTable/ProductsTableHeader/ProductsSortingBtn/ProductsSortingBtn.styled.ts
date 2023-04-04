@@ -13,7 +13,7 @@ export const StyledBoxBtn = styled.div`
 display: flex;
 flex-flow: row;
 border: 2px solid ${blue};
-  margin: 8px;
+padding:0;
 `;
 
 export const StyledIconButton = styled(IconButton)`

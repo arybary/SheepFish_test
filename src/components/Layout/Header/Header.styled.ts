@@ -1,6 +1,7 @@
 import { AppBar, Container, Toolbar } from "@mui/material";
 import styled from "styled-components";
-import { blue, yellow } from "../Layout.styled";
+import { blue, yellow } from "../../../theme.";
+
 
 export const HeaderContainer = styled(Container)`
   position: relative;

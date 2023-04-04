@@ -36,8 +36,11 @@ const tableSlice = createSlice({
     removeSorting: (state) => {
       state.sorting = { field: "id", order: "asc" };
     },
-    setPagination: (state, action: PayloadAction<Pagination>) => {
-      state.pagination = action.payload;
+    setPaginationPage: (state, action: PayloadAction<number>) => {
+      state.pagination.page = action.payload;
+    },
+    setPaginationRowsPerPage: (state, action: PayloadAction<number>) => {
+      state.pagination.rowsPerPage = action.payload;
     },
   },
 });

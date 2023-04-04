@@ -1,6 +1,7 @@
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import styled from "styled-components";
-import { blue, yellow } from "../Layout/Layout.styled";
+import { blue, yellow } from "../../theme.";
+
 
 export const StyledAccordion = styled(Accordion)`
   margin: 8px;

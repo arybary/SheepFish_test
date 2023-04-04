@@ -17,7 +17,7 @@ const ProductsFieldFilter: React.FC<ProductsFieldFilterProps> = ({ field }) => {
     <StyledAutocomplete
       size="small"
       sx={{ minWidth: 400 }}
-      options={products.map((item) => item[field])}
+      options={Array.from(new Set(products.map((item) => item[field])))}
       renderInput={(params) => (
         <TextField {...params} label={`Search ${field}`} fullWidth />
       )}
