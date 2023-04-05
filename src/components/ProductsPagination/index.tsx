@@ -1,6 +1,4 @@
 import React from "react";
-import styled from "styled-components";
-import { Pagination } from "@mui/material";
 import { useTypedSelector } from "../../store/useTypedSelector";
 import { selectTablePagination } from "../../store/selectors/selector";
 import { useActions } from "../../store/useActions";

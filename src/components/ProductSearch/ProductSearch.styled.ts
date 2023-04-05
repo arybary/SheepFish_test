@@ -4,7 +4,7 @@ import { blue, yellow } from "../../theme.";
 
 
 export const StyledAccordion = styled(Accordion)`
-  margin: 8px;
+width:100%;
   border: solid ${blue};
   .MuiAccordionSummary-root {
     display: flex;

@@ -1,17 +1,15 @@
-import { Box } from "@mui/material";
 import React from "react";
 import { Outlet } from "react-router-dom";
-
 import Footer from "./Footer";
 import Header from "./Header";
-import { Root } from "./Layout.styled";
+import { Main, Root } from "./Layout.styled";
 
 const Layout: React.FC = () => (
   <Root>
     <Header />
-    <Box>
+    <Main>
       <Outlet />
-    </Box>
+    </Main>
     <Footer />
   </Root>
 );

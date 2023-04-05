@@ -1,24 +1,17 @@
-import {  Container, } from "@mui/material";
 import styled from "styled-components";
 import { yellow, blue } from "../../../theme.";
 
-export const FooterContainer = styled(Container)`
-
-position: relative;
-width: 100%;
-color: black;
-text-align: center;
-`;
-
-
-
-export const StyledToolbar = styled.div`
-  position: fixed;
-  left: 0;
-  bottom: 0;
+export const FooterContainer = styled.footer`
   width: 100%;
+  height: 60px;
+  position: fixed;
+  display:flex;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  align-items: center;
+  justify-content: space-evenly;
   background-color: ${yellow};
   color: ${blue};
-  display: flex;
-  justify-content: space-around;
 `;

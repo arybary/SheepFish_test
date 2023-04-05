@@ -10,14 +10,15 @@ export const StyledBox = styled.div`
   margin: 8px;
 `;
 export const StyledBoxBtn = styled.div`
-display: flex;
-flex-flow: row;
-border: 2px solid ${blue};
-padding:0;
+  display: flex;
+  flex-flow: row;
+  border: 2px solid ${blue};
+  padding: 0;
 `;
 
 export const StyledIconButton = styled(IconButton)`
   color: #757575;
+  padding: 0;
 
   &.active {
     color: #0077ff;

@@ -4,6 +4,7 @@ import ProductEdit from "../../ProductEdit";
 import TextRating from "../../ProductRating";
 import { StyledTableCell, StyledTableRow } from "./ProductsTableBodyRow.styled";
 import { Link } from "react-router-dom";
+import { Avatar } from "@mui/material";
 
 interface ProductStyledTableRowProps extends Product {
   product: Product;
@@ -20,9 +21,11 @@ const ProductStyledTableRow: React.FC<ProductStyledTableRowProps> = ({
   brand,
   category,
   product,
+  thumbnail,
 }) => (
-  <StyledTableRow key={id}>
-    <StyledTableCell>{id}</StyledTableCell>
+  <StyledTableRow>
+
+    <StyledTableCell>{id}<Avatar alt="img-product" variant="rounded" src={thumbnail} /></StyledTableCell>
     <StyledTableCell>
       <Link to={`/${id}`}>{title}</Link>
     </StyledTableCell>
@@ -35,7 +38,7 @@ const ProductStyledTableRow: React.FC<ProductStyledTableRowProps> = ({
     <StyledTableCell>{stock}</StyledTableCell>
     <StyledTableCell>{brand}</StyledTableCell>
     <StyledTableCell>{category}</StyledTableCell>
-    <StyledTableCell align="right" style={{ display: "flex" }}>
+    <StyledTableCell align="right">
       <ProductDelete productId={id} />
       <ProductEdit product={product} />
     </StyledTableCell>

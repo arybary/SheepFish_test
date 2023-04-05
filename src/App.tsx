@@ -6,15 +6,18 @@ import NoMatchPage from "./page/NoMatchPage";
 import ProductPage from "./page/ProductPage";
 import ProductsHomePage from "./page/ProductsHomePage";
 import store from "./store/store";
+import { GlobalStyle } from "./theme.";
 
 const App: React.FC = () => (
   <Provider store={store}>
+         <GlobalStyle/>
     <BrowserRouter>
+
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index path="/" element={<ProductsHomePage />} />
           <Route index path="/:id" element={<ProductPage />} />
-          <Route  path="/*" element={<NoMatchPage />} />
+          <Route path="/*" element={<NoMatchPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

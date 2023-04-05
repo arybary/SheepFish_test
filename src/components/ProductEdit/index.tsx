@@ -11,7 +11,7 @@ interface EditProps {
 const ProductEdit: React.FC<EditProps> = ({ product }) => {
   const { updateProduct } = useActions();
 
-  const nameDialog = "EDIT_PRODUCT";
+  const nameDialog = "EDIT";
 
   const editProduct = (product: Product) => {
     updateProduct({

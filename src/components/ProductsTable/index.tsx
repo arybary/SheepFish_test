@@ -1,4 +1,4 @@
-import { Box, Table, TableBody, Paper } from "@mui/material";
+import { Box, Table, TableBody, Paper, TableContainer } from "@mui/material";
 import { useEffect } from "react";
 import { selectProductsForTable } from "../../store/selectors/selector";
 import { useActions } from "../../store/useActions";
@@ -16,7 +16,8 @@ const ProductTable: React.FC = () => {
   const products = useTypedSelector(selectProductsForTable);
 
   return (
-    <Table component={Box}>
+
+<Table stickyHeader>
       <HeaderTable />
       <TableBody>
         {products.map((product) => (
@@ -28,7 +29,9 @@ const ProductTable: React.FC = () => {
           />
         ))}
       </TableBody>
-    </Table>
+      </Table>
+
+ 
   );
 };
 

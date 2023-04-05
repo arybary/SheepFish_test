@@ -1,24 +1,17 @@
-import { AppBar, Container, Toolbar } from "@mui/material";
+
 import styled from "styled-components";
 import { blue, yellow } from "../../../theme.";
 
-
-export const HeaderContainer = styled(Container)`
-  position: relative;
-  z-index: 4;
-`;
-
-export const StyledAppBar = styled(AppBar)`
-  && {
-    position: fixed;
-    background-color: ${blue};
-    color: ${yellow};
-  }
-`;
-
-export const StyledToolbar = styled(Toolbar)`
-  && {
-    display: flex;
-    justify-content: space-between;
-  }
+export const HeaderContainer = styled.header`
+height: 60px;
+position: fixed;
+display:flex;
+justify-content: space-between;
+top: 0;
+left: 0;
+right: 0;
+align-items: center;
+z-index: 1;
+background-color: ${blue};
+color: ${yellow};
 `;

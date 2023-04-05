@@ -34,7 +34,6 @@ const ProductsSortingBtn: React.FC<ProductsSortingBtnProps> = ({
 
   return (
     <StyledBox>
-  
       <StyledBoxBtn>
         {sortParams.map(({ name, icon }, index) => (
           <StyledIconButton
@@ -49,13 +48,15 @@ const ProductsSortingBtn: React.FC<ProductsSortingBtnProps> = ({
           >
             {icon}
           </StyledIconButton>
-        ))}    {nameCell === field && nameCell !== "id" && (
-            <StyledIconButton className="active" onClick={() => removeSorting()}>
-              <SortIcon />
-            </StyledIconButton>
-          )}
-      </StyledBoxBtn>
+        ))}
 
+        <StyledIconButton
+          className={nameCell === field ? "active" : undefined}
+          onClick={() => removeSorting()}
+        >
+          <SortIcon />
+        </StyledIconButton>
+      </StyledBoxBtn>
     </StyledBox>
   );
 };

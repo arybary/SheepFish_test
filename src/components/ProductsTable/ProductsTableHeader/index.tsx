@@ -5,6 +5,7 @@ import {
   StyledTableHead,
   StyledTableCell,
   StyledHeaderTitle,
+
 } from "./ProductTableHeader.Styled";
 
 interface TableHeaderCell {
@@ -27,7 +28,7 @@ const tableHeaderData: TableHeaderCell[] = [
 
 const HeaderTable: React.FC = () => (
   <StyledTableHead>
-    <TableRow>
+    <TableRow >
       {tableHeaderData.map(({ name, sortBy }) => (
         <StyledTableCell key={name + sortBy}>
           <StyledHeaderTitle>

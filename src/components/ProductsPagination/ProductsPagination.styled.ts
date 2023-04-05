@@ -2,20 +2,20 @@ import { Box, Select, Pagination } from "@mui/material";
 import styled from "styled-components";
 import { blue, yellow } from "../../theme.";
 
-
 export const StyledPaginationWrapper = styled(Box)`
-  position:fixed;
-  bottom:0;
+position:sticky;
+bottom:0;
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
   background-color: ${blue};
   color: ${yellow};
-  margin-bottom: 30px;
-`; 
+
+`;
 
 export const StyledSelectWrapper = styled(Select)`
+
   margin-left: 16px;
   background-color: ${yellow};
   border: none;
