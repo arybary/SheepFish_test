@@ -1,6 +1,6 @@
-import { IconButton } from "@mui/material";
-import { blue } from "@mui/material/colors";
-import styled from "styled-components";
+import { IconButton } from '@mui/material';
+import { blue } from '@mui/material/colors';
+import styled from 'styled-components';
 
 export const StyledBox = styled.div`
   display: flex;

@@ -1,19 +1,15 @@
-import React from "react";
-import { Product } from "../../../model/Product";
-import SortIcon from "@mui/icons-material/Sort";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import {
-  StyledBox,
-  StyledBoxBtn,
-  StyledIconButton,
-} from "./ProductsSortingBtn.styled";
-import { useTypedSelector } from "../../../store/useTypedSelector";
-import { selectTableSorting } from "../../../store/selectors/selector";
-import { useActions } from "../../../store/useActions";
+import React from 'react';
+import { Product } from '../../../model/Product';
+import SortIcon from '@mui/icons-material/Sort';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { StyledBox, StyledBoxBtn, StyledIconButton } from './ProductsSortingBtn.styled';
+import { useTypedSelector } from '../../../store/useTypedSelector';
+import { selectTableSorting } from '../../../store/selectors/selector';
+import { useActions } from '../../../store/useActions';
 
 interface SortParams {
-  name: "asc" | "desc";
+  name: 'asc' | 'desc';
   icon: any;
 }
 
@@ -22,13 +18,11 @@ interface ProductsSortingBtnProps {
 }
 
 const sortParams: SortParams[] = [
-  { name: "desc", icon: <KeyboardArrowUpIcon /> },
-  { name: "asc", icon: <KeyboardArrowDownIcon /> },
+  { name: 'desc', icon: <KeyboardArrowUpIcon /> },
+  { name: 'asc', icon: <KeyboardArrowDownIcon /> },
 ];
 
-const ProductsSortingBtn: React.FC<ProductsSortingBtnProps> = ({
-  nameCell,
-}) => {
+const ProductsSortingBtn: React.FC<ProductsSortingBtnProps> = ({ nameCell }) => {
   const { field, order } = useTypedSelector(selectTableSorting);
   const { setSorting, removeSorting } = useActions();
 
@@ -39,9 +33,7 @@ const ProductsSortingBtn: React.FC<ProductsSortingBtnProps> = ({
           <StyledIconButton
             size="small"
             key={name + index}
-            className={
-              nameCell === field && name === order ? "active" : undefined
-            }
+            className={nameCell === field && name === order ? 'active' : undefined}
             onClick={() => {
               setSorting({ field: nameCell, order: name });
             }}
@@ -51,7 +43,7 @@ const ProductsSortingBtn: React.FC<ProductsSortingBtnProps> = ({
         ))}
 
         <StyledIconButton
-          className={nameCell === field ? "active" : undefined}
+          className={nameCell === field ? 'active' : undefined}
           onClick={() => removeSorting()}
         >
           <SortIcon />

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { blue, yellow } from "../../theme.";
+import styled from 'styled-components';
+import { blue, yellow } from '../../theme.';
 
 export const TableWrapper = styled.div`
   height: 100hv;

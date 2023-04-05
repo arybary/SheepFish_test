@@ -1,7 +1,7 @@
-import { Select, Pagination } from "@mui/material";
+import { Select, Pagination } from '@mui/material';
 
-import styled from "styled-components";
-import { blue, yellow } from "../../theme.";
+import styled from 'styled-components';
+import { blue, yellow } from '../../theme.';
 
 export const StyledPaginationWrapper = styled.div`
   display: flex;

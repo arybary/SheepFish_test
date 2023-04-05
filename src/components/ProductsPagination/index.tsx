@@ -3,10 +3,10 @@ import { StyledPaginationWrapper } from './ProductsPagination.styled';
 import PagesPagination from './PaginationPages';
 import PageSelect from './SelectPages';
 
-const ProductsPagination:React.FC = () => (
+const ProductsPagination: React.FC = () => (
   <StyledPaginationWrapper>
     <PagesPagination />
-    <PageSelect/>
+    <PageSelect />
   </StyledPaginationWrapper>
 );
 

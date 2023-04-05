@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { yellowOpacity } from "../../../theme.";
+import styled from '@emotion/styled';
+import { yellowOpacity } from '../../../theme.';
 
 export const StyledTableCell = styled.td`
   padding: 3px;
