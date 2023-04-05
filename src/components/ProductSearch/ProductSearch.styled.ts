@@ -1,10 +1,9 @@
-import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
-import styled from "styled-components";
-import { blue, yellow } from "../../theme.";
-
+import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
+import styled from 'styled-components';
+import { blue, yellow } from '../../theme.';
 
 export const StyledAccordion = styled(Accordion)`
-width:100%;
+  width: 100%;
   border: solid ${blue};
   .MuiAccordionSummary-root {
     display: flex;
@@ -23,7 +22,6 @@ export const StyledAccordionSummary = styled(AccordionSummary)`
       justify-content: space-between;
       align-items: center;
       width: 100%;
-     
     }
   }
 `;
@@ -41,6 +39,6 @@ export const StyledBox = styled.div`
   margin: 8px;
 `;
 export const StyledColumn = styled.div`
-border: 2px solid ${blue};
+  border: 2px solid ${blue};
   margin: 8px;
 `;

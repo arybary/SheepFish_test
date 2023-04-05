@@ -1,5 +1,5 @@
 import React from "react";
-import { Product } from "../../../../model/Product";
+import { Product } from "../../../model/Product";
 import SortIcon from "@mui/icons-material/Sort";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -8,9 +8,9 @@ import {
   StyledBoxBtn,
   StyledIconButton,
 } from "./ProductsSortingBtn.styled";
-import { useTypedSelector } from "../../../../store/useTypedSelector";
-import { selectTableSorting } from "../../../../store/selectors/selector";
-import { useActions } from "../../../../store/useActions";
+import { useTypedSelector } from "../../../store/useTypedSelector";
+import { selectTableSorting } from "../../../store/selectors/selector";
+import { useActions } from "../../../store/useActions";
 
 interface SortParams {
   name: "asc" | "desc";

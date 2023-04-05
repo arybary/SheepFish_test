@@ -4,11 +4,11 @@ import HomeIcon from "@mui/icons-material/Home";
 import { BottomNavigationAction, Typography } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import ProductAdd from "../../ProductAdd";
-import { HeaderContainer} from "./Header.styled";
+import { HeaderContainer } from "./Header.styled";
 
 const navLinks = [
   {
-    title: "All products",
+    title: "All products Home",
     path: "/",
     icon: <HomeIcon />,
   },
@@ -32,6 +32,7 @@ const Header: React.FC = () => {
             <BottomNavigationAction
               key={link.title}
               label={link.title}
+              showLabel={true}
               component={RouterLink}
               to={link.path}
               icon={link.icon}

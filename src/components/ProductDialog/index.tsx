@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   AppBar,
   BottomNavigationAction,
@@ -9,11 +9,11 @@ import {
   Typography,
   DialogContent,
   Dialog,
-} from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import ProductForm from "../ProductForm";
-import { Product } from "../../model/Product";
-import { TransitionProps } from "@mui/material/transitions";
+} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import ProductForm from '../ProductForm';
+import { Product } from '../../model/Product';
+import { TransitionProps } from '@mui/material/transitions';
 
 interface DialogProps {
   product: Product;
@@ -27,16 +27,11 @@ const Transition = React.forwardRef(
     props: TransitionProps & {
       children: React.ReactElement;
     },
-    ref: React.Ref<unknown>
-  ) => <Slide direction="up" ref={ref} {...props} />
+    ref: React.Ref<unknown>,
+  ) => <Slide direction="up" ref={ref} {...props} />,
 );
 
-const ProductDialog: React.FC<DialogProps> = ({
-  product,
-  name,
-  onSubmitProduct,
-  icon,
-}) => {
+const ProductDialog: React.FC<DialogProps> = ({ product, name, onSubmitProduct, icon }) => {
   const { id, title } = product;
   const [open, setOpen] = React.useState(false);
 
@@ -64,24 +59,13 @@ const ProductDialog: React.FC<DialogProps> = ({
           icon={icon}
         />
       </Tooltip>
-      <Dialog
-        fullScreen
-        open={open}
-        onClose={handleClose}
-        TransitionComponent={Transition}
-      >
-        <AppBar sx={{ position: "relative" }}>
+      <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
+        <AppBar sx={{ position: 'relative' }}>
           <Toolbar>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              {name} #{id}:
-              {title}
+              {name} #{id}:{title}
             </Typography>
-            <IconButton
-              edge="end"
-              color="inherit"
-              onClick={handleClose}
-              aria-label="close"
-            >
+            <IconButton edge="end" color="inherit" onClick={handleClose} aria-label="close">
               <CloseIcon />
             </IconButton>
           </Toolbar>

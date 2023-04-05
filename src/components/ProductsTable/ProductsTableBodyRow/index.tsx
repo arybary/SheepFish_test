@@ -1,10 +1,9 @@
 import { Product } from "../../../model/Product";
 import ProductDelete from "../../ProductDelete";
 import ProductEdit from "../../ProductEdit";
-import TextRating from "../../ProductRating";
-import { StyledTableCell, StyledTableRow } from "./ProductsTableBodyRow.styled";
+import { StyledTableCell} from "./ProductsTableBodyRow.styled";
 import { Link } from "react-router-dom";
-import { Avatar } from "@mui/material";
+import { Avatar, Rating } from "@mui/material";
 
 interface ProductStyledTableRowProps extends Product {
   product: Product;
@@ -23,9 +22,11 @@ const ProductStyledTableRow: React.FC<ProductStyledTableRowProps> = ({
   product,
   thumbnail,
 }) => (
-  <StyledTableRow>
-
-    <StyledTableCell>{id}<Avatar alt="img-product" variant="rounded" src={thumbnail} /></StyledTableCell>
+  <tr>
+    <StyledTableCell>
+      {id}
+      <Avatar alt="img-product" variant="rounded" src={thumbnail} />
+    </StyledTableCell>
     <StyledTableCell>
       <Link to={`/${id}`}>{title}</Link>
     </StyledTableCell>
@@ -33,7 +34,7 @@ const ProductStyledTableRow: React.FC<ProductStyledTableRowProps> = ({
     <StyledTableCell>{price}</StyledTableCell>
     <StyledTableCell>{discountPercentage}</StyledTableCell>
     <StyledTableCell>
-      <TextRating value={rating} />
+      <Rating value={rating} readOnly precision={0.1} />
     </StyledTableCell>
     <StyledTableCell>{stock}</StyledTableCell>
     <StyledTableCell>{brand}</StyledTableCell>
@@ -42,7 +43,7 @@ const ProductStyledTableRow: React.FC<ProductStyledTableRowProps> = ({
       <ProductDelete productId={id} />
       <ProductEdit product={product} />
     </StyledTableCell>
-  </StyledTableRow>
+  </tr>
 );
 
 export default ProductStyledTableRow;

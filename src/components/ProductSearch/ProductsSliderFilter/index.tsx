@@ -1,23 +1,15 @@
-import React from "react";
-import { Product } from "../../../model/Product";
-import { FilterValue } from "../../../store/slice/filter.slice";
-import { useActions } from "../../../store/useActions";
-import {
-  Wrapper,
-  StyledSlider,
-  TitleSlider,
-  StyledTextField,
-} from "./ProductSliderFilter.styled";
+import React from 'react';
+import { Product } from '../../../model/Product';
+import { FilterValue } from '../../../store/slice/filter.slice';
+import { useActions } from '../../../store/useActions';
+import { Wrapper, StyledSlider, TitleSlider, StyledTextField } from './ProductSliderFilter.styled';
 
 interface ProductSliderFilterProps {
   name: keyof Product;
   startValue: FilterValue;
 }
 
-const ProductSliderFilter: React.FC<ProductSliderFilterProps> = ({
-  name,
-  startValue,
-}) => {
+const ProductSliderFilter: React.FC<ProductSliderFilterProps> = ({ name, startValue }) => {
   const { setFilter } = useActions();
   const [value, setValue] = React.useState<number[]>(startValue);
   const nameForTitle = name.slice(0, 8);
@@ -33,9 +25,7 @@ const ProductSliderFilter: React.FC<ProductSliderFilterProps> = ({
         size="small"
         value={value[0]}
         type="number"
-        onChange={(event) =>
-          handleChange([Number(event.target.value), value[1]])
-        }
+        onChange={event => handleChange([Number(event.target.value), value[1]])}
       />
       <StyledSlider
         step={0.1}
@@ -50,9 +40,7 @@ const ProductSliderFilter: React.FC<ProductSliderFilterProps> = ({
         value={value[1]}
         type="number"
         size="small"
-        onChange={(event) =>
-          handleChange([value[0], Number(event.target.value)])
-        }
+        onChange={event => handleChange([value[0], Number(event.target.value)])}
       />
     </Wrapper>
   );

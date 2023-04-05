@@ -1,7 +1,6 @@
-import { Autocomplete } from "@mui/material";
-import styled from "styled-components";
-import { blue, yellow } from "../../../theme.";
-
+import { Autocomplete } from '@mui/material';
+import styled from 'styled-components';
+import { blue, yellow } from '../../../theme.';
 
 export const StyledAutocomplete = styled(Autocomplete)`
   color: ${blue};
@@ -13,7 +12,7 @@ export const StyledAutocomplete = styled(Autocomplete)`
     font-size: 20px;
     color: ${blue};
     padding: 10px;
-    border-radius:15px;
+    border-radius: 15px;
     border: 2px solid ${blue};
 
     &:focus {

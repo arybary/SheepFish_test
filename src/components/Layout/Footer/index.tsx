@@ -1,18 +1,14 @@
-import * as React from "react";
-import { Link, Typography } from "@mui/material";
-import { GitHub, Google } from "@mui/icons-material";
-import { FooterContainer } from "./Footer.styled";
+import * as React from 'react';
+import { Link, Typography } from '@mui/material';
+import { GitHub, Google } from '@mui/icons-material';
+import { FooterContainer } from './Footer.styled';
 
 const Footer: React.FC = () => (
   <FooterContainer>
-    <Link
-      href="https://github.com/arybary"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <Link href="https://github.com/arybary" target="_blank" rel="noopener noreferrer">
       <GitHub fontSize="small" sx={{ mr: 1 }} />
       GitHub
-    </Link>{" "}
+    </Link>
     <Typography variant="h6" component="div">
       created by ROSTISLAV 2023
     </Typography>

@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Edit as EditIcon } from "@mui/icons-material";
-import { useActions } from "../../store/useActions";
-import { Product } from "../../model/Product";
-import ProductDialog from "../ProductDialog";
+import * as React from 'react';
+import { Edit as EditIcon } from '@mui/icons-material';
+import { useActions } from '../../store/useActions';
+import { Product } from '../../model/Product';
+import ProductDialog from '../ProductDialog';
 
 interface EditProps {
   product: Product;
@@ -11,7 +11,7 @@ interface EditProps {
 const ProductEdit: React.FC<EditProps> = ({ product }) => {
   const { updateProduct } = useActions();
 
-  const nameDialog = "EDIT";
+  const nameDialog = 'EDIT';
 
   const editProduct = (product: Product) => {
     updateProduct({

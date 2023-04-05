@@ -1,26 +1,13 @@
-import React from "react";
-import { useTypedSelector } from "../../store/useTypedSelector";
-import { selectTablePagination } from "../../store/selectors/selector";
-import { useActions } from "../../store/useActions";
-import { StyledPagination, StyledPaginationWrapper } from "./ProductsPagination.styled";
+import React from 'react';
+import { StyledPaginationWrapper } from './ProductsPagination.styled';
+import PagesPagination from './PaginationPages';
+import PageSelect from './SelectPages';
 
-const ProductsPagination = () => {
-  const { page, countPages } = useTypedSelector(selectTablePagination);
-  const { setPaginationPage } = useActions();
-
-  const handlePageChange = (e: any, newPage: number) => {
-    setPaginationPage(newPage);
-  };
-
-  return (
-    <StyledPaginationWrapper>
-    <StyledPagination
-      count={countPages}
-      page={page}
-      onChange={handlePageChange}
-    />
-    </StyledPaginationWrapper>
-  );
-};
+const ProductsPagination:React.FC = () => (
+  <StyledPaginationWrapper>
+    <PagesPagination />
+    <PageSelect/>
+  </StyledPaginationWrapper>
+);
 
 export default ProductsPagination;

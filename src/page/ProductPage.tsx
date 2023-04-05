@@ -1,17 +1,20 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { useTypedSelector } from "../store/useTypedSelector";
 import { selectProductById } from "../store/selectors/selector";
-import { Product } from "../model/Product";
 import ProductCard from "../components/ProductCard";
-
+import ProductDelete from "../components/ProductDelete";
 
 const ProductPage: React.FC = () => {
   const { id } = useParams();
   const product = useTypedSelector((state) =>
     selectProductById(state, id as string)
   );
-  return <ProductCard {...(product as Product)} />;
+  if (!product) {
+    return <Navigate to="/no-product" />;
+  }
+  return<> <ProductCard product={product} />
+  </>;
 };
 
 export default ProductPage;

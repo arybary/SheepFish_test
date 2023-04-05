@@ -1,5 +1,4 @@
-import styled from "styled-components";
-
+import styled from 'styled-components';
 
 export const Root = styled.div`
   display: flex;
@@ -8,8 +7,8 @@ export const Root = styled.div`
   width: 100%;
 }))`;
 
-export const Main = styled.main`flex: 1;
-overflow-y: auto;
-margin:60px 0;
-height: calc(100vh - 120px);`
-
+export const Main = styled.main`
+  overflow-y: auto;
+  margin: 60px 0;
+  height: calc(100vh - 120px);
+`;

@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Slider, TextField,Box } from "@mui/material";
-import { blue, yellow } from "../../../theme.";
+import styled from 'styled-components';
+import { Slider, TextField, Box } from '@mui/material';
+import { blue, yellow } from '../../../theme.';
 
 export const Wrapper = styled(Box)`
   display: flex;
@@ -52,7 +52,7 @@ export const StyledSlider = styled(Slider)`
 `;
 
 export const StyledTextField = styled(TextField)`
-  width: 20%;
+  width: 30%;
   border: solid ${blue};
 
   .MuiInputBase-input {

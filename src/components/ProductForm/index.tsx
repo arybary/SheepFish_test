@@ -1,9 +1,9 @@
-import * as React from "react";
-import { Formik, Form, Field } from "formik";
-import { Product } from "../../model/Product";
-import { TextField, Button, Typography, Grid, Stack } from "@mui/material";
-import { validationSchema } from "./validation.shema";
-import ProductImagesField from "./ProductImagesField";
+import * as React from 'react';
+import { Formik, Form, Field } from 'formik';
+import { Product } from '../../model/Product';
+import { TextField, Button, Typography, Grid, Stack } from '@mui/material';
+import { validationSchema } from './validation.shema';
+import ProductImagesField from './ProductImagesField';
 
 interface ProductFormProps {
   product: Product;
@@ -11,24 +11,17 @@ interface ProductFormProps {
   onSubmitProduct: (values: Product) => void;
 }
 
-const ProductForm: React.FC<ProductFormProps> = ({
-  product,
-  onSubmitProduct,
-  nameBtn,
-}) => (
+const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmitProduct, nameBtn }) => (
   <Formik
     initialValues={product}
     validationSchema={validationSchema}
-    onSubmit={(values) => {
+    onSubmit={values => {
       onSubmitProduct(values);
     }}
   >
     {({ values, errors, touched, handleSubmit, handleChange, handleReset }) => (
       <Form onSubmit={handleSubmit} onReset={handleReset}>
-        <Stack
-          direction={{ xs: "column", sm: "row" }}
-          spacing={{ xs: 3, sm: 3, md: 4 }}
-        >
+        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 3, sm: 3, md: 4 }}>
           <Grid item xs={7}>
             <Typography variant="h3" component="h2">
               <img src={values.thumbnail} alt={values.title} />
@@ -75,10 +68,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
             />
           </Grid>
         </Stack>
-        <Stack
-          direction={{ xs: "column", sm: "row" }}
-          spacing={{ xs: 3, sm: 3, md: 4 }}
-        >
+        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 3, sm: 3, md: 4 }}>
           <Field
             as={TextField}
             fullWidth
@@ -122,9 +112,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
             label="Discount Percentage %"
             type="number"
             value={values.discountPercentage}
-            error={
-              touched.discountPercentage && Boolean(errors.discountPercentage)
-            }
+            error={touched.discountPercentage && Boolean(errors.discountPercentage)}
             helperText={touched.discountPercentage && errors.discountPercentage}
             onChange={handleChange}
           />
@@ -160,12 +148,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
           handleChange={handleChange}
         />
 
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-          spacing={3}
-        >
+        <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={3}>
           <Button variant="contained" color="primary" type="submit">
             {nameBtn}
           </Button>

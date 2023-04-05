@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-const NoMatchPage=()=> {
+const NoProductPage=()=> {
     return (
       <div>
-        <h2>It looks like you're lost...</h2>
+        <h2>NO PRODUCT...</h2>
         <p>
           <Link to="/">Go to the home page</Link>
         </p>
@@ -11,4 +11,4 @@ const NoMatchPage=()=> {
     );
   }
 
-  export default NoMatchPage
+  export default NoProductPage
