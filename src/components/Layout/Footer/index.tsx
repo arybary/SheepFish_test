@@ -9,9 +9,7 @@ const Footer: React.FC = () => (
       <GitHub fontSize="small" sx={{ mr: 1 }} />
       GitHub
     </Link>
-    <Typography variant="h6" component="div">
-      created by ROSTISLAV 2023
-    </Typography>
+    <Typography variant="h5">created by 2023</Typography>
     <Link
       href="https://docs.google.com/document/d/1UPVi2a9BNfme9zNLBeGaL41hKIwaAwfiADpX5A8pYIY/edit#heading=h.gjdgxs"
       target="_blank"
