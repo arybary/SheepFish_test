@@ -1,17 +1,19 @@
-# ProjectUkraine test
+# SheepFish test
 
 ### [Site link]
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/14e7ef42-5c90-44c8-a7ec-0b6e20c59735/deploy-status)](https://main--glistening-parfait-e4402f.netlify.app/)
-<a href="https://main--glistening-parfait-e4402f.netlify.app" ># LINK</a>
+<a href="https://main--glistening-parfait-e4402f.netlify.app" ># LINK FOR DEPLOUY</a>
 
 ### The tech stack is:
 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
-- mui
 - [TypeScript](https://ru.wikipedia.org/wiki/TypeScript)
 - [REACT](https://ru.wikipedia.org/wiki/React)
+- [styled-component](https://styled-components.com/)
+- [redux-toolkit](https://redux-toolkit.js.org/)
+- -[mui](https://mui.com/)
 
 ## Getting Started and Create
 
@@ -34,20 +36,4 @@ Author: Medvid Rostislav
 
 
 # Задача:
-
-Сделать две страницы каталога товаров:
-
-1. список товаров;
-2. детальная страница товара;
-
-Реализация функционала страниц произвольная (сторонние библиотеки, либо просто на компонентах)
-
-
-Данные о товарах нужно получать из `fake-api`.
-
-На странице со списком должны быть товары с картинками. по клику переход на карточку товара.
-
-На детальной странице нужно вывести информацию по товару, реализовать выбор `цвета`, просмотр изображений через переключение, выбор размера из списка доступных, не доступные размеры должны быть заблокированы
-
-Вёрстка и стилизация не важна, можно минимально расположить элементы для удобного восприятия.
-```
+https://docs.google.com/document/d/1tycDWG-1_y1mdOMpVH_tRfSODi8_3IRqIBCGGXRkK9w/edit
