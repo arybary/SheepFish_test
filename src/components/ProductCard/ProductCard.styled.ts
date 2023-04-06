@@ -22,5 +22,5 @@ export const StyledCarousel = styled(Carousel)`
 export const StyledCardContent = styled(CardContent)`
   display: flex;
   flex-direction: column;
-  min-width: 400px;
+
 `;
