@@ -13,7 +13,7 @@
 - [REACT](https://ru.wikipedia.org/wiki/React)
 - [styled-component](https://styled-components.com/)
 - [redux-toolkit](https://redux-toolkit.js.org/)
-- -[mui](https://mui.com/)
+- [mui](https://mui.com/)
 
 ## Getting Started and Create
 
