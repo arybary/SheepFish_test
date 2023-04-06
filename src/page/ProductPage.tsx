@@ -3,7 +3,6 @@ import { Navigate, useParams } from "react-router-dom";
 import { useTypedSelector } from "../store/useTypedSelector";
 import { selectProductById } from "../store/selectors/selector";
 import ProductCard from "../components/ProductCard";
-import ProductDelete from "../components/ProductDelete";
 
 const ProductPage: React.FC = () => {
   const { id } = useParams();
