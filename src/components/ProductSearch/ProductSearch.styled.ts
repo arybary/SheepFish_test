@@ -39,6 +39,9 @@ export const StyledBox = styled.div`
   margin: 8px;
 `;
 export const StyledColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 400px;
   border: 2px solid ${blue};
   margin: 8px;
 `;

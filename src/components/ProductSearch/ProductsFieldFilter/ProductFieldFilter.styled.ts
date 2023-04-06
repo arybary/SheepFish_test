@@ -3,10 +3,12 @@ import styled from 'styled-components';
 import { blue, yellow } from '../../../theme.';
 
 export const StyledAutocomplete = styled(Autocomplete)`
+display:flex;
   color: ${blue};
   margin: 20px;
+  width:90%;
   border: 2px solid ${yellow};
-  border-radius: 20px;
+  border-radius: 10px;
 
   .MuiInputBase-input {
     font-size: 20px;
@@ -23,6 +25,7 @@ export const StyledAutocomplete = styled(Autocomplete)`
   }
 
   .MuiInputLabel-root {
+ 
     font-size: 18px;
     color: ${blue};
   }

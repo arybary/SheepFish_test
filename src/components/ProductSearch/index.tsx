@@ -27,6 +27,8 @@ const ProductSearch: React.FC = () => (
         <StyledColumn>
           <ProductSliderFilter name={'price'} startValue={[0, 1000]} />
           <ProductSliderFilter name={'rating'} startValue={[0, 5]} />
+        </StyledColumn>
+        <StyledColumn>
           <ProductSliderFilter name={'stock'} startValue={[0, 200]} />
           <ProductSliderFilter name={'discountPercentage'} startValue={[0, 100]} />
         </StyledColumn>

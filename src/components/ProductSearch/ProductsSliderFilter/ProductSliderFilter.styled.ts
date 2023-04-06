@@ -4,7 +4,7 @@ import { blue, yellow } from '../../../theme.';
 
 export const Wrapper = styled(Box)`
   display: flex;
-  flex-direction: z;
+  flex-direction: column;
   align-items: center;
   padding: 4px;
   margin: 16px;
