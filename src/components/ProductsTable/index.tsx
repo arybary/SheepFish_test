@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
 import { selectProductsForTable } from '../../store/selectors/selector';
-import { useActions } from '../../store/useActions';
+
 import { useTypedSelector } from '../../store/useTypedSelector';
 import ProductTableRow from './ProductsTableBodyRow';
 import {
@@ -33,11 +32,6 @@ const tableHeaderData: TableHeaderCell[] = [
 ];
 
 const ProductTable: React.FC = () => {
-  const { fetchProducts } = useActions();
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
   const products = useTypedSelector(selectProductsForTable);
 
   return (
