@@ -41,13 +41,11 @@ const ProductsSortingBtn: React.FC<ProductsSortingBtnProps> = ({ nameCell }) => 
             {icon}
           </StyledIconButton>
         ))}
-
-        <StyledIconButton
-          className={nameCell === field ? 'active' : undefined}
-          onClick={() => removeSorting()}
-        >
-          <SortIcon />
-        </StyledIconButton>
+        {nameCell !== 'id' && nameCell === field && (
+          <StyledIconButton className="active" onClick={() => removeSorting()}>
+            <SortIcon />
+          </StyledIconButton>
+        )}
       </StyledBoxBtn>
     </StyledBox>
   );
