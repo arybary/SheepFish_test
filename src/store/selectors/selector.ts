@@ -1,6 +1,6 @@
-import { createSelector } from "@reduxjs/toolkit";
-import { productsAdapter } from "../slice/products.slice";
-import { RootState } from "../store";
+import { createSelector } from '@reduxjs/toolkit';
+import { productsAdapter } from '../slice/products.slice';
+import { RootState } from '../store';
 
 export const {
   selectAll: selectAllProducts,
@@ -11,31 +11,23 @@ export const {
 export const selectFilter = (state: RootState) => state.filters.filters;
 
 export const selectTableParam = (state: RootState) => state.table;
-export const selectTableSorting = createSelector(
-  [selectTableParam],
-  ({ sorting }) => sorting
-);
-
-
+export const selectTableSorting = createSelector([selectTableParam], ({ sorting }) => sorting);
 
 export const selectFiltredProducts = createSelector(
   [selectAllProducts, selectFilter],
   (products, filters) =>
-    products.filter((product) => {
-      return filters.every((filter) => {
+    products.filter(product => {
+      return filters.every(filter => {
         const { field, value } = filter;
         const fieldValue = product[field];
-        if (typeof value === "string") {
-          return fieldValue
-            .toString()
-            .toLowerCase()
-            .includes(value.toLowerCase());
+        if (typeof value === 'string') {
+          return fieldValue.toString().toLowerCase().includes(value.toLowerCase());
         } else {
           const [minValue, maxValue] = value;
           return fieldValue >= minValue && fieldValue <= maxValue;
         }
       });
-    })
+    }),
 );
 export const selectTablePagination = createSelector(
   [selectTableParam, selectFiltredProducts],
@@ -43,7 +35,7 @@ export const selectTablePagination = createSelector(
     const { page, rowsPerPage } = pagination;
     const countPages = Math.ceil(products.length / rowsPerPage);
     return { page, countPages, rowsPerPage };
-  }
+  },
 );
 
 export const selectProductsForTable = createSelector(
@@ -59,13 +51,7 @@ export const selectProductsForTable = createSelector(
       if (aValue === bValue) {
         return 0;
       }
-      return order === "asc"
-        ? aValue < bValue
-          ? -1
-          : 1
-        : aValue > bValue
-        ? -1
-        : 1;
+      return order === 'asc' ? (aValue < bValue ? -1 : 1) : aValue > bValue ? -1 : 1;
     });
 
     const { page, rowsPerPage } = pagination;
@@ -74,6 +60,5 @@ export const selectProductsForTable = createSelector(
     const endIndex = startIndex + rowsPerPage;
 
     return filteredProducts.slice(startIndex, endIndex);
-  }
+  },
 );
-
